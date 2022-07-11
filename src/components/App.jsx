@@ -13,9 +13,15 @@ import Notification from "components/Notification/Notification.jsx";
 //   };
 
 export function App() {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  // const [good, setGood] = useState(0);
+  // const [neutral, setNeutral] = useState(0);
+  // const [bad, setBad] = useState(0);
+  const [state, setState] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
+  const { good, neutral, bad } = state;
 
 
   // const onBtnClick = feedback => {
@@ -38,23 +44,17 @@ export function App() {
     return ((good / countTotalFeedback()) * 100).toFixed();
   };
 
+
   const vote = e => {
     const name = e.target.name;
-    switch (name) {
-      case 'good':
-        setGood(item => item + 1);
-        break;
-      case 'bad':
-        setBad(item => item + 1);
-        break;
-      case 'neutral':
-        setNeutral(item => item + 1);
-        break;
-
-      default:
-        return;
-    }
+    setState(prevState => {
+      return {
+        ...prevState,
+        [name]: prevState[name] + 1,
+      };
+    });
   };
+
 
   // render() {
   // const { good, neutral, bad } = this.state;
