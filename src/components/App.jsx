@@ -45,8 +45,8 @@ export function App() {
   };
 
 
-  const vote = e => {
-    const name = e.target.name;
+  const vote = name => {
+    // const name = e.target.name;
     setState(prevState => {
       return {
         ...prevState,
@@ -67,7 +67,7 @@ export function App() {
           options={Object.keys(state)}
           onBtnClick={onBtnClick}
         /> */}
-        <FeedbackOptions vote={vote} />
+        <FeedbackOptions vote={vote} options={Object.keys(state)} />
       </Section>
       <Section title="Statistics">
 

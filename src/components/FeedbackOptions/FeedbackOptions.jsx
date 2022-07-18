@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import st from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ vote }) => (
+const FeedbackOptions = ({ options, vote }) => (
   // const FeedbackOptions = ({ options, onBtnClick }) => (
   <div>
-    <button className={st.Button} onClick={e => {
+    {/* <button className={st.Button} onClick={e => {
       vote(e);
     }}
       name="good"
@@ -23,12 +22,17 @@ const FeedbackOptions = ({ vote }) => (
     }}
       name="bad"
       type="button"
-    > Bad </button>
-    {/* {options.map(option => (
-      <button className={st.Button} type="button" key={option} onClick={() => onBtnClick(option)}>
+    > Bad </button> */}
+
+    {options.map(option => (
+      <button className={st.Button} type="button" key={options} onClick={() => vote(option)}>
         {option}
       </button>
-    ))} */}
+    ))}
+
+
+
+
   </div>
 );
 
